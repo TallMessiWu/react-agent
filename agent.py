@@ -619,7 +619,14 @@ async def run_agent(
         if msg.tool_calls:
             names = [tc.function.name for tc in msg.tool_calls]
             if verbose:
-                print(f"\n  [轮次 {turn}] LLM → {', '.join(names)}")
+                # 打印 CoT（模型对当前步骤的思考）
+                if msg.content:
+                    print(f"\n  [轮次 {turn}] 💭 {msg.content}")
+                # 打印 reasoning_content（DeepSeek 内部推理链）
+                reasoning = getattr(msg, 'reasoning_content', None)
+                if reasoning:
+                    print(f"           🧠 {reasoning[:200]}")
+                print(f"           🎯 → {', '.join(names)}")
 
             messages.append(msg.model_dump())
 
