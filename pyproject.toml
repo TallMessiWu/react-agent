@@ -1,0 +1,49 @@
+[project]
+name = "react-agent"
+version = "0.1.0"
+description = "从零手写的生产级 ReAct Agent — DeepSeek 驱动，自主调用 GitHub REST API 完成仓库分析，内置重试 / 熔断 / 降级三层弹性保护"
+readme = "README.md"
+requires-python = ">=3.14"
+license = { text = "MIT" }
+authors = [
+    { name = "Junlin Wu", email = "tallmessiwu@gmail.com" },
+]
+keywords = [
+    "agent",
+    "react",
+    "function-calling",
+    "llm",
+    "deepseek",
+    "github-api",
+    "circuit-breaker",
+    "resilience",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "httpx>=0.28.1",
+    "openai>=2.34.0",
+    "python-dotenv>=1.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
+    "nbformat>=5.10.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/TallMessiWu/react-agent"
+Repository = "https://github.com/TallMessiWu/react-agent"
+Issues = "https://github.com/TallMessiWu/react-agent/issues"
+
+[tool.uv]
+package = false
